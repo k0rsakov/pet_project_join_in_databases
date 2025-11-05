@@ -1,2 +1,13 @@
-# pet_project_join_in_databases
-https://korsak0v.notion.site/Data-Engineer-185c62fdf79345eb9da9928356884ea0
+# Простой DataLake: Trino + S3 Minio + Spark + Iceberg
+
+## О видео
+
+## О проекте
+
+### Поднятие инфраструктуры
+
+Для запуска инфраструктуры:
+
+```bash
+docker compose up -d
+```
