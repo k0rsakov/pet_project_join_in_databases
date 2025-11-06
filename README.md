@@ -1,4 +1,4 @@
-# Простой DataLake: Trino + S3 Minio + Spark + Iceberg
+# `JOIN` – что это, зачем это, как это?
 
 ## О видео
 
