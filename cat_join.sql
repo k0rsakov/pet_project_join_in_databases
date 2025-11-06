@@ -174,3 +174,11 @@ SELECT c.id AS cat_id, cn.name AS cat_name, h.id AS home_id, h.address AS home_a
 FROM cat c
 FULL OUTER JOIN home h ON c.home_id = h.id
 LEFT JOIN catname cn ON c.catname_id = cn.id;
+
+/*
+Демонстрация, что мы можем делать JOIN таблиц по любому ключу.
+В данном запросе мы получаем всех котов, которые имеют такое же имя как владельцы котов.
+*/
+SELECT * FROM catname AS c
+JOIN "owner" AS o
+	ON c."name" = o.fullname
