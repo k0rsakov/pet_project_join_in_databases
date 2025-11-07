@@ -133,3 +133,9 @@ flowchart LR
 ```bash
 docker compose up -d
 ```
+
+Для воссоздания БД:
+
+```bash
+docker exec -i my_postgres psql -U postgres -d postgres < cats_db.sql
+```
