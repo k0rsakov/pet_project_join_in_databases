@@ -46,7 +46,7 @@ erDiagram
 
 Шпаргалка по аннотациям связей:
 
-![](https://avatars.mds.yandex.net/get-lpc/1520633/9346286d-22db-439a-9ced-422fc163c2cd/width_1920_q80)
+![](img/relationship_degree.png)
 
 Данные в базе данных выглядят примерно так как в таблице `cat`:
 
