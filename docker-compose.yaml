@@ -1,5 +1,6 @@
 services:
   test_db:
+      container_name: my_postgres
       image: postgres:13
       restart: always
       ports:
