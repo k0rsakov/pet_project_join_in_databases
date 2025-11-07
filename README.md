@@ -3,6 +3,8 @@
 ## О видео
 
 ## О проекте
+
+### ER-модель
 Пример того как может выглядеть ER-модель:
 ```mermaid
 erDiagram
@@ -48,17 +50,7 @@ erDiagram
 
 ![](img/relationship_degree.png)
 
-Данные в базе данных выглядят примерно так как в таблице `cat`:
-
-| id | catname_id | home_id |
-|----|------------|---------|
-| 1  | 1          | 1       |
-| 2  | 2          | 1       |
-| 3  | 3          | 2       |
-| 4  | 4          |         |
-
-Но мы как дата-инженеры и исследователи данных хотим понимать что значат эти данные, поэтому без `JOIN` никак. Ниже показаны возможности `JOIN`.
-
+#### Примеры
 
 \# Пример 1: Множество котиков (A) и множество владельцев (B). `INNER JOIN` выбирает пары на пересечении:
 
@@ -125,6 +117,63 @@ flowchart LR
   C3-->|Живёт|H2
   %% C4-->|Без дома|X[ ] (Нет строки)
 ```
+
+### Физическая модель
+
+```mermaid
+erDiagram
+    owner_cat {
+        int owner_id PK, FK
+        int cat_id PK, FK
+    }
+    owner {
+        int id PK
+        string fullname
+    }
+    catname {
+        int id PK
+        string name
+    }
+    home {
+        int id PK
+        string address
+    }
+    cat {
+        int id PK
+        int catname_id FK
+        int home_id FK
+    }
+    catsurname {
+        int id PK
+        int cat_id FK
+        string surname
+    }
+    vetvisit {
+        int id PK
+        int cat_id FK
+        date visit_date
+        string description
+    }
+
+    owner_cat }o--|| owner : "owner_id"
+    owner_cat }o--|| cat : "cat_id"
+    cat ||--|| catname : "catname_id"
+    cat }o--|| home : "home_id"
+    catsurname }o--|| cat : "cat_id"
+    vetvisit }o--|| cat : "cat_id"
+```
+#### Демонстрация физической таблицы
+
+Данные в базе данных выглядят примерно так как в таблице `cat`:
+
+| id | catname_id | home_id |
+|----|------------|---------|
+| 1  | 1          | 1       |
+| 2  | 2          | 1       |
+| 3  | 3          | 2       |
+| 4  | 4          |         |
+
+Но мы как дата-инженеры и исследователи данных хотим понимать что значат эти данные, поэтому без `JOIN` никак. Ниже показаны возможности `JOIN`.
 
 ### Поднятие инфраструктуры
 
